@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable class FloatLabelTextView: UITextView {
+@IBDesignable open class FloatLabelTextView: UITextView {
 	let animationDuration = 0.3
 	let placeholderTextColor = UIColor.lightGray.withAlphaComponent(0.65)
 	fileprivate var isIB = false
@@ -17,7 +17,7 @@ import UIKit
 	fileprivate var initialTopInset:CGFloat = 0
 	
 	// MARK:- Properties
-	override var accessibilityLabel:String? {
+	override open var accessibilityLabel:String? {
 		get {
 			if text.isEmpty {
 				return title.text!
@@ -28,14 +28,13 @@ import UIKit
 		set {
 		}
 	}
+	public var titleFont:UIFont = UIFont.systemFont(ofSize: 12.0) {
 	
-	var titleFont:UIFont = UIFont.systemFont(ofSize: 12.0) {
 		didSet {
 			title.font = titleFont
 		}
 	}
-	
-	@IBInspectable var hint:String = "" {
+	@IBInspectable public var hint:String = "" {
 		didSet {
 			title.text = hint
 			title.sizeToFit()
@@ -46,30 +45,30 @@ import UIKit
 			hintLabel.sizeToFit()
 		}
 	}
-	
-	@IBInspectable var hintYPadding:CGFloat = 0.0 {
+
+	@IBInspectable public var hintYPadding:CGFloat = 0.0 {
 		didSet {
 			adjustTopTextInset()
 		}
-	}
 	
-	@IBInspectable var titleYPadding:CGFloat = 0.0 {
+	}
+	@IBInspectable public var titleYPadding:CGFloat = 0.0 {
 		didSet {
 			var r = title.frame
 			r.origin.y = titleYPadding
 			title.frame = r
 		}
 	}
-	
-	@IBInspectable var titleTextColour:UIColor = UIColor.gray {
+
+	@IBInspectable public var titleTextColour:UIColor = UIColor.gray {
 		didSet {
 			if !isFirstResponder {
 				title.textColor = titleTextColour
 			}
 		}
 	}
-	
-	@IBInspectable var titleActiveTextColour:UIColor = UIColor.cyan {
+
+	@IBInspectable public var titleActiveTextColour:UIColor = UIColor.cyan {
 		didSet {
 			if isFirstResponder {
 				title.textColor = titleActiveTextColour
@@ -78,7 +77,7 @@ import UIKit
 	}
 	
 	// MARK:- Init
-	required init?(coder aDecoder:NSCoder) {
+	required public init?(coder aDecoder:NSCoder) {
 		super.init(coder:aDecoder)
 		setup()
 	}
@@ -98,12 +97,12 @@ import UIKit
 	}
 	
 	// MARK:- Overrides
-	override func prepareForInterfaceBuilder() {
+	override open func prepareForInterfaceBuilder() {
 		isIB = true
 		setup()
 	}
 	
-	override func layoutSubviews() {
+	override open func layoutSubviews() {
 		super.layoutSubviews()
 		adjustTopTextInset()
 		hintLabel.alpha = text.isEmpty ? 1.0 : 0.0

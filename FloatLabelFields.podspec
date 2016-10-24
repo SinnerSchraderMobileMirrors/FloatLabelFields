@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FloatLabelFields"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Swift implementation of a UX pattern that has come to be known as the 'Float Label Pattern'."
   s.description  = <<-DESC
                     FloatLabelFields is the Swift implementation of a UX pattern that has come to be known as the "Float Label Pattern". The initial Objective-C implementation of this pattern can be found on Github as JVFloatLabeledTextField.
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author       = "Fahim Farook"
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/SinnerSchraderMobileMirrors/FloatLabelFields.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/SinnerSchraderMobileMirrors/FloatLabelFields.git", :tag => "0.0.2" }
   s.source_files = "FloatLabelFields/*.swift"
   s.requires_arc = true
 end
